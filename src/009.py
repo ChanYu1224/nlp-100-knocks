@@ -16,15 +16,14 @@ def shuffle_char(word:str) -> str:
   """両端の文字以外をシャッフルする"""
   if len(word) <= 4:
     return word
-  
+
   start = word[0]
   end = word[-1]
   center = list(word[1:len(word)-1])
   shuffle(center)
   center = "".join(center)
-
   result = start + center + end
-
+  
   return result
 
 sentense = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind."
