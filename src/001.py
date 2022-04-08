@@ -1,8 +1,8 @@
 word = "パタトクカシーー"
-ans = []
+ans = ""
 
 for i in range(len(word)):
   if i%2 == 0:
-    ans.append(word[i])
+    ans += word[i]
 
-print("".join(ans))
+print(ans)
