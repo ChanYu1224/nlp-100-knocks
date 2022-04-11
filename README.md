@@ -1,11 +1,9 @@
 # nlp-100-nocks
 自然言語処理100本ノック
+https://nlp100.github.io/ja/
 
-### /src
+### src
 問題を解いたソースコード
 
-### /data
+### data
 問題を解くのに使ったテキストデータ、コーパス
-
-問題はこちら
-https://nlp100.github.io/ja/
