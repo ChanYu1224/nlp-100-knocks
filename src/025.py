@@ -1,15 +1,20 @@
 import re
 
 text_file = open('../data/england.txt')
-content = text_file.read()
+text = text_file.read()
 text_file.close()
 
-#基礎情報記述部分の抜き出し
-pattern = r'^\{\{基礎情報.*?$(.*?)^\}\}'
-information_content = re.findall(pattern, content, re.MULTILINE + re.DOTALL)[0]
+def retrieve_basic_informations(text):
+    #基礎情報記述部分の抜き出し
+    pattern = r'^\{\{基礎情報.*?$(.*?)^\}\}'
+    information_text = re.findall(pattern, text, re.MULTILINE + re.DOTALL)[0]
 
-pattern = r'^\|(.+?)\s*=\s*(.+?)$'
-informations = dict(re.findall(pattern, information_content, re.MULTILINE + re.DOTALL))
+    pattern = r'^\|(.+?)\s*=\s*(.+?)$'
+    informations = dict(re.findall(pattern, information_text, re.MULTILINE + re.DOTALL))
+
+    return informations
+
+informations = retrieve_basic_informations(text)
 
 for key, value in informations.items():
     print(key +': '+ value)
