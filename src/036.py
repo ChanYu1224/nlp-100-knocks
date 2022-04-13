@@ -1,3 +1,6 @@
+import collections
+import matplotlib.pyplot as plt
+
 mecab_file = open('../data/neko.txt.mecab', 'r')
 
 sentences = []
@@ -22,4 +25,15 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+surfaces = []
+for sentence in sentences:
+    for morph in sentence:
+        if morph['pos'] != '記号':
+            surfaces.append(morph['surface'])
+
+counter = collections.Counter(surfaces)
+words, counts = zip(*counter.most_common(10))
+
+plt.bar(words, counts)
+plt.title('単語の出現頻度（上位10単語）')
+plt.savefig('../graphs/036_words_frequency.png')

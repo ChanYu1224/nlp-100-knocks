@@ -1,3 +1,6 @@
+import collections
+import matplotlib.pyplot as plt
+
 mecab_file = open('../data/neko.txt.mecab', 'r')
 
 sentences = []
@@ -22,4 +25,18 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+surfaces = []
+for sentence in sentences:
+    for morph in sentence:
+        if morph['pos'] != '記号':
+            surfaces.append(morph['surface'])
+
+counter = collections.Counter(surfaces)
+words, counts = zip(*counter.most_common())
+ranks = range(1, len(counts)+1)
+
+plt.title('Zipfの法則')
+plt.xscale('log')
+plt.yscale('log')
+plt.plot(ranks, counts)
+plt.savefig('../graphs/039_zipf.png')

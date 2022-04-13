@@ -22,4 +22,8 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+for sentence in sentences:
+    for i, morph in enumerate(sentence):
+        if i < 2: continue
+        if sentence[i-2]['pos'] == '名詞' and sentence[i-1]['surface'] == 'の' and sentence[i]['pos'] == '名詞':
+            print(sentence[i-2]['surface'] + sentence[i-1]['surface'] + sentence[i]['surface'])

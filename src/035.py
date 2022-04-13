@@ -1,3 +1,5 @@
+import collections
+
 mecab_file = open('../data/neko.txt.mecab', 'r')
 
 sentences = []
@@ -22,4 +24,11 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+surfaces = []
+for sentence in sentences:
+    for morph in sentence:
+        surfaces.append(morph['surface'])
+
+counter = collections.Counter(surfaces)
+for key, value in counter.most_common():
+    print(key, ':', value)

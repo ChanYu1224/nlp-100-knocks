@@ -22,4 +22,7 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+for sentence in sentences:
+    for morph in sentence:
+        if morph['pos'] == '動詞':
+            print(morph['base'])

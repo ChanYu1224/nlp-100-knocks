@@ -22,4 +22,13 @@ for line in mecab_file:
 
 mecab_file.close()
 
-print(sentences[2])    
+for sentence in sentences:
+    for i in range(len(sentence)):
+        articulation = ''
+        offset = 0
+        while (i+offset) < len(sentence) and sentence[i+offset]['pos'] == '名詞':
+            articulation += sentence[i+offset]['surface']
+            offset += 1
+        if offset > 1:
+            i += offset-1
+            print(articulation)
