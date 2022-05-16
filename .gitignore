@@ -1,3 +1,5 @@
 __pycache__/
+.venv/
+data/GoogleNews-vectors-negative300.bin.gz
 *.feature.txt
 *.bins
