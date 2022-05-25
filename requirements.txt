@@ -2,3 +2,5 @@ torch
 numpy
 gensim
 matplotlib
+scikit-learn
+pandas
