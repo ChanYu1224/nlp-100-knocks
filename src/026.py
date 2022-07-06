@@ -4,12 +4,6 @@ text_file = open('../data/england.txt')
 text = text_file.read()
 text_file.close()
 
-import re
-
-text_file = open('../data/england.txt')
-text = text_file.read()
-text_file.close()
-
 def retrieve_basic_informations(text):
     """基礎情報の抜き出し"""
     pattern = r'^\{\{基礎情報.*?$(.*?)^\}\}'
